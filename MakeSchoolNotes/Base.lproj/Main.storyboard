@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z3y-b9-1Fc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5i1-k5-HHs">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -39,6 +39,7 @@
                                 <connections>
                                     <outlet property="noteModificationTimeLabel" destination="98O-hv-5aj" id="4Mp-5v-RFy"/>
                                     <outlet property="noteTitleLabel" destination="2E1-we-I1K" id="TUT-0q-Dxv"/>
+                                    <segue destination="Z3y-b9-1Fc" kind="show" identifier="displayNote" id="970-kb-WfL"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
