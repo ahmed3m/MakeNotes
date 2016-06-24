@@ -31,7 +31,7 @@ class ListNotesTableViewController: UITableViewController {
 //    return cell
     
     // 1
-    let cell = tableView.dequeueReusableCellWithIdentifier("listNotesTableViewCell", forIndexPath: indexPath) as! ListNotesTableViewCell
+    let cell = tableView.dequeueReusableCellWithIdentifier("listNotesTableViewCell", forIndexPath: indexPath) as! ListNotesTableViewCell  // downcasting
     
     // 2
     cell.noteTitleLabel.text = "note's title"

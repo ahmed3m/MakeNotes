@@ -22,7 +22,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Note Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2E1-we-I1K">
-                                            <rect key="frame" x="8" y="0.0" width="81" height="21"/>
+                                            <rect key="frame" x="8" y="0.0" width="158" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" red="0.32549019607843138" green="0.6588235294117647" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -36,7 +36,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="noteModificationTime" destination="98O-hv-5aj" id="HJM-Au-NCo"/>
                                     <outlet property="noteModificationTimeLabel" destination="98O-hv-5aj" id="4Mp-5v-RFy"/>
                                     <outlet property="noteTitleLabel" destination="2E1-we-I1K" id="TUT-0q-Dxv"/>
                                 </connections>
