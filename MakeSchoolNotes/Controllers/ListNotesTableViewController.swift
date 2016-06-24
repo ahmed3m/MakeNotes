@@ -41,14 +41,21 @@ class ListNotesTableViewController: UITableViewController {
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // 1
     if let identifier = segue.identifier {
-      // 2
       if identifier == "displayNote" {
-        // 3
-        print("Transitioning to the Display Note View Controller")
+        print("Table view cell tapped")
+      } else if identifier == "addNote" {
+        print("+ button tapped")
       }
     }
   }
+  
+  @IBAction func unwindToListNotesViewController(segue: UIStoryboardSegue) {
+    
+    // for now, simply defining the method is sufficient.
+    // we'll add code later
+    
+  }
     
 }
+

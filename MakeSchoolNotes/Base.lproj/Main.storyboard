@@ -48,13 +48,19 @@
                             <outlet property="delegate" destination="u2p-Xo-LIX" id="msW-Ug-yhm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Notes" id="0YB-hg-oYy"/>
+                    <navigationItem key="navigationItem" title="Notes" id="0YB-hg-oYy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mN3-Rh-9NK">
+                            <connections>
+                                <segue destination="Z3y-b9-1Fc" kind="show" identifier="addNote" id="QEa-f3-paW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXi-TP-ue3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1375" y="267"/>
         </scene>
-        <!--Display Note View Controller-->
+        <!--Title-->
         <scene sceneID="u8c-Lw-h7A">
             <objects>
                 <viewController id="Z3y-b9-1Fc" customClass="DisplayNoteViewController" customModule="MakeSchoolNotes" customModuleProvider="target" sceneMemberID="viewController">
@@ -67,12 +73,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SuG-Pk-hMc">
-                                <rect key="frame" x="51" y="45" width="499" height="30"/>
+                                <rect key="frame" x="51" y="89" width="499" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eB6-Wx-oFI">
-                                <rect key="frame" x="51" y="103" width="499" height="457"/>
+                                <rect key="frame" x="51" y="147" width="499" height="413"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -90,8 +96,21 @@
                             <constraint firstItem="SuG-Pk-hMc" firstAttribute="trailing" secondItem="eB6-Wx-oFI" secondAttribute="trailing" id="n01-cU-awr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="MHX-Y1-Vmb">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Lhg-7J-Vok">
+                            <connections>
+                                <segue destination="nN2-34-8Gd" kind="unwind" identifier="Cancel" unwindAction="unwindToListNotesViewController:" id="qK7-XS-zhD"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="EL4-Fs-jhI">
+                            <connections>
+                                <segue destination="nN2-34-8Gd" kind="unwind" identifier="Save" unwindAction="unwindToListNotesViewController:" id="piT-wV-z0y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bM5-8V-V5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="nN2-34-8Gd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2173" y="267"/>
         </scene>
@@ -114,4 +133,7 @@
             <point key="canvasLocation" x="563" y="267"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="QEa-f3-paW"/>
+    </inferredMetricsTieBreakers>
 </document>
