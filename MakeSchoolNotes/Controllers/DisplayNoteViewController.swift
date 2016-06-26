@@ -16,6 +16,8 @@ class DisplayNoteViewController: UIViewController {
   @IBOutlet weak var noteContentTextView: UITextView!
   @IBOutlet weak var noteTitleTextField: UITextField!
   
+  var note: Note? // will hold the note we're editing
+  
   // called when the view is loaded to the memory
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,31 +26,36 @@ class DisplayNoteViewController: UIViewController {
   // This method is activated with a segue is triggered
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     
-    // checking which segue was activated
-    if let identifier = segue.identifier {
-      if identifier == "Cancel" {
-        print("Cancel button tapped")
-      } else if identifier == "Save" {
-        print("Save button tapped")
-        
-        // constructing a note object and setting its fields if save was pressed
-        let note = Note()
-        note.title = noteTitleTextField.text ?? ""  // if no title was put, keep it as empty title
-        note.content = noteContentTextView.text
+    let listNotesTableViewController = segue.destinationViewController as! ListNotesTableViewController // getting access to the ListNotesTableViewController
+    
+    if segue.identifier == "Save" {
+      if let note = note {  // checks if the note is being modified
+        note.title = noteTitleTextField.text ?? ""
+        note.content = noteContentTextView.text ?? ""
+        // on page 10 in the tutorial, why didn't they update the time as well?
         note.modificationTime = NSDate()
-        
-        // creating a reference to the ListNotesTableViewController, and adding the note to the array
-        let listNotesTableViewController = segue.destinationViewController as! ListNotesTableViewController
-        listNotesTableViewController.notes.append(note)
+        listNotesTableViewController.tableView.reloadData() // updating/reloading the data with our changes
+      } else {
+        let newNote = Note()  // create a new node object
+        newNote.title = noteTitleTextField.text ?? ""
+        newNote.content = noteContentTextView.text ?? ""
+        newNote.modificationTime = NSDate()
+        listNotesTableViewController.notes.append(newNote)  // appending a new node to the array
       }
     }
   }
+
   
   // called when the view is about to appear
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    noteTitleTextField.text = ""  // emptying the text field
-    noteContentTextView.text = "" // emptying the text view
+    if let note = note {  // if we already have a note, we display it
+      noteTitleTextField.text = note.title
+      noteContentTextView.text = note.content
+    } else {  // otherwise, we have an empty note
+      noteTitleTextField.text = ""
+      noteContentTextView.text = ""
+    }
   }
   
 }

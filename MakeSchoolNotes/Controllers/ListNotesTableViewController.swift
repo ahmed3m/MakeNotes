@@ -5,6 +5,8 @@
 //  Created by Chris Orcutt on 1/10/16.
 //  Copyright © 2016 MakeSchool. All rights reserved.
 //
+//  This class is used to control the table view
+//
 
 import UIKit
 
@@ -17,6 +19,7 @@ class ListNotesTableViewController: UITableViewController {
     }
   }
   
+  // method is called when the controller's view is loaded in memory
   override func viewDidLoad() {
     super.viewDidLoad()
   }
@@ -44,9 +47,13 @@ class ListNotesTableViewController: UITableViewController {
 
   // This method is activated with a segue is triggered
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if let identifier = segue.identifier {  // storing the triggered segue's identifier to a local String
+    if let identifier = segue.identifier { // storing the segue's identifier in identifier
       if identifier == "displayNote" {
         print("Table view cell tapped")
+        let indexPath = tableView.indexPathForSelectedRow! // storing the index of the selected row
+        let note = notes[indexPath.row]
+        let displayNoteViewController = segue.destinationViewController as! DisplayNoteViewController // getting access to the DisplayNoteViewController
+        displayNoteViewController.note = note
       } else if identifier == "addNote" {
         print("+ button tapped")
       }
