@@ -67,6 +67,14 @@ class ListNotesTableViewController: UITableViewController {
     // we'll add code later
     
   }
-    
+  
+  // used to delete a cell in the table view
+  override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    if editingStyle == .Delete {  // checking if the editing style is delete
+      notes.removeAtIndex(indexPath.row)  // remove the note from the array
+      tableView.reloadData()  // reload the table to show changes
+    }
+  }
+  
 }
 
