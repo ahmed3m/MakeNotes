@@ -9,11 +9,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ListNotesTableViewController: UITableViewController {
 
   // it's an array that will hold our notes
-  var notes = [Note]() {
+  var notes: Results<Note>! {
     didSet { // triggered when the property changes to reload the data when a new node is added
       tableView.reloadData()
     }
@@ -22,6 +23,7 @@ class ListNotesTableViewController: UITableViewController {
   // method is called when the controller's view is loaded in memory
   override func viewDidLoad() {
     super.viewDidLoad()
+    notes = RealmHelper.retrieveNotes() // retrieving the notes from Realm when the table view is loaded
   }
 
   // returns the number of cells/notes in the table view
@@ -71,10 +73,9 @@ class ListNotesTableViewController: UITableViewController {
   // used to delete a cell in the table view
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     if editingStyle == .Delete {  // checking if the editing style is delete
-      notes.removeAtIndex(indexPath.row)  // remove the note from the array
-      tableView.reloadData()  // reload the table to show changes
+      RealmHelper.deleteNote(notes[indexPath.row])
+      notes = RealmHelper.retrieveNotes() // retrieving the updated notes
     }
   }
-  
 }
 

@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DisplayNoteViewController: UIViewController {
   
@@ -25,26 +26,28 @@ class DisplayNoteViewController: UIViewController {
   
   // This method is activated with a segue is triggered
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    
     let listNotesTableViewController = segue.destinationViewController as! ListNotesTableViewController // getting access to the ListNotesTableViewController
-    
     if segue.identifier == "Save" {
-      if let note = note {  // checks if the note is being modified
-        note.title = noteTitleTextField.text ?? ""
-        note.content = noteContentTextView.text ?? ""
-        // on page 10 in the tutorial, why didn't they update the time as well?
-        note.modificationTime = NSDate()
-        listNotesTableViewController.tableView.reloadData() // updating/reloading the data with our changes
-      } else {
-        let newNote = Note()  // create a new node object
+      
+      // if note exists, update title and content
+      if let note = note {
+        let newNote = Note()
         newNote.title = noteTitleTextField.text ?? ""
         newNote.content = noteContentTextView.text ?? ""
-        newNote.modificationTime = NSDate()
-        listNotesTableViewController.notes.append(newNote)  // appending a new node to the array
+        RealmHelper.updateNote(note, newNote: newNote)
+      } else {
+        // if note does not exist, create new note
+        let note = Note()
+        note.title = noteTitleTextField.text ?? ""
+        note.content = noteContentTextView.text ?? ""
+        note.modificationTime = NSDate()
+        RealmHelper.addNote(note)
       }
+      listNotesTableViewController.notes = RealmHelper.retrieveNotes()
     }
   }
-
+  
+  
   
   // called when the view is about to appear
   override func viewWillAppear(animated: Bool) {
