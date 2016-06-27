@@ -19,6 +19,7 @@
 		65BF36611D07D9D800CB1BB3 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65BF365E1D07D9D800CB1BB3 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		65BF36621D07D9D800CB1BB3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BF365F1D07D9D800CB1BB3 /* RealmSwift.framework */; };
 		65BF36631D07D9D800CB1BB3 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65BF365F1D07D9D800CB1BB3 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E29C98301D2088D30034603A /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29C982F1D2088D30034603A /* RealmHelper.swift */; };
 		E2F984C91D1DC54600AAA7CD /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F984C81D1DC54600AAA7CD /* Note.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		2E4A07B01C42F599007F415F /* ListNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNotesTableViewCell.swift; sourceTree = "<group>"; };
 		65BF365E1D07D9D800CB1BB3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		65BF365F1D07D9D800CB1BB3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		E29C982F1D2088D30034603A /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		E2F984C81D1DC54600AAA7CD /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 		2E4A07AC1C42F4EB007F415F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E29C982F1D2088D30034603A /* RealmHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				2E4A07AF1C42F539007F415F /* NSDate+convertToString.swift in Sources */,
 				2E4A07AB1C42F497007F415F /* DisplayNoteViewController.swift in Sources */,
 				2E4A07941C42F3B0007F415F /* AppDelegate.swift in Sources */,
+				E29C98301D2088D30034603A /* RealmHelper.swift in Sources */,
 				2E4A07A91C42F40B007F415F /* ListNotesTableViewController.swift in Sources */,
 				E2F984C91D1DC54600AAA7CD /* Note.swift in Sources */,
 			);
