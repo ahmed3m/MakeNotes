@@ -45,7 +45,7 @@ class ListNotesTableViewController: UITableViewController {
     let note = notes[row]  // fetching the note in the corresponding row
     
     cell.noteTitleLabel.text = note.title // setting the title of the note to the cell's title
-    
+    cell.noteContent.text = note.content
     cell.noteModificationTimeLabel.text = note.modificationTime.convertToString() // setting the modification time of the note to the time label of the cell
     
     return cell

@@ -15,5 +15,6 @@ class ListNotesTableViewCell: UITableViewCell {
   // Creating connections with the cell's text labels
   @IBOutlet weak var noteTitleLabel: UILabel!
   @IBOutlet weak var noteModificationTimeLabel: UILabel!
+  @IBOutlet weak var noteContent: UILabel!
 
 }
