@@ -38,6 +38,10 @@ class ListNotesTableViewController: UITableViewController {
     
     let row = indexPath.row // returns the integer value of the index of the rows
     
+    if row % 2 == 0 {
+      cell.backgroundColor = UIColor.lightGrayColor()
+    }
+    
     let note = notes[row]  // fetching the note in the corresponding row
     
     cell.noteTitleLabel.text = note.title // setting the title of the note to the cell's title
@@ -60,7 +64,7 @@ class ListNotesTableViewController: UITableViewController {
         print("+ button tapped")
       }
     }
-  }
+  } 
   
   // Creating an action to the unwind segue that's coming from the DisplayNoteView
   @IBAction func unwindToListNotesViewController(segue: UIStoryboardSegue) {
